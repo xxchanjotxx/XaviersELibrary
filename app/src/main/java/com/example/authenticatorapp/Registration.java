@@ -3,6 +3,7 @@ package com.example.authenticatorapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,7 +29,7 @@ import java.util.Map;
 public class Registration extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText mFullName, mEmail, mPassword, mPhone;
+    EditText mFullName, mEmail, mPassword, mPhone, mStream;
     Button mRegisterBtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
@@ -36,6 +37,7 @@ public class Registration extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userID;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class Registration extends AppCompatActivity {
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
+        mStream = findViewById(R.id.stream);
         mRegisterBtn = findViewById(R.id.registerBtn);
         mLoginBtn = findViewById(R.id.CreateText);
 
@@ -64,6 +67,7 @@ public class Registration extends AppCompatActivity {
                 String password = mPassword.getText().toString().trim();
                 String fullName = mFullName.getText().toString();
                 String phone = mPhone.getText().toString();
+                String stream = mStream.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required.");
@@ -75,6 +79,10 @@ public class Registration extends AppCompatActivity {
                 }
                 if (password.length() < 6) {
                     mPassword.setError("Password must be >= 6 Characters");
+                    return;
+                }
+                if (TextUtils.isEmpty(stream)) {
+                    mStream.setError("Stream is Required.");
                     return;
                 }
 
@@ -93,6 +101,7 @@ public class Registration extends AppCompatActivity {
                             user.put("fName",fullName);
                             user.put("email",email);
                             user.put("phone",phone);
+                            user.put("stream",stream);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {

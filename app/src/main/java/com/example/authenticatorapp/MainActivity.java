@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,19 +27,21 @@ import javax.security.auth.Subject;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView fullName, email, phone, _user, maths, eng, science, sexed, percent;
+    TextView fullName, email, phone, _user, stream;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
     Button _btn;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         phone = findViewById(R.id.profilePhone);
         email = findViewById(R.id.profileEmail);
+        stream = findViewById(R.id.Stream);
         fullName = findViewById(R.id.profileName);
         fullName = findViewById(R.id.profileName);
         _btn = findViewById(R.id.LogoutBtn);
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 fullName.setText(documentSnapshot.getString("fName"));
                 _user.setText("Welcome, "+ documentSnapshot.getString("fName"));
                 email.setText(documentSnapshot.getString("email"));
+                stream.setText(documentSnapshot.getString("stream"));
 
 //                maths.setText(documentSnapshot.getString("maths"));
 //                eng.setText(documentSnapshot.getString("english"));

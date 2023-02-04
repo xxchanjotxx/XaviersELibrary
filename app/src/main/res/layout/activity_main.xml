@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Your Name"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
@@ -63,14 +63,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/welcomeUser"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/profilePhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Phone Number"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
@@ -83,11 +83,28 @@
         app:layout_constraintVertical_bias="0.016" />
 
     <TextView
+        android:id="@+id/Stream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Stream"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/profileEmail"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <TextView
         android:id="@+id/profileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Email Address"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
